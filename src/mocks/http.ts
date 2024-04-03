@@ -16,4 +16,4 @@ app.use(
 app.use(express.json());
 app.use(createMiddleware(...handlers));
 
-app.listen(() => console.log(`Mock Server is running on port: ${port}`));
+app.listen(port, () => console.log(`Mock Server is running on port: ${port}`));
