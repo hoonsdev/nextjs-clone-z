@@ -1,7 +1,7 @@
 'use client';
 
 import Post from '@/app/(afterLogin)/_component/Post';
-import { getFollowingPosts } from '@/app/(afterLogin)/_lib/getFollowingPosts';
+import { getFollowingPosts } from '@/app/(afterLogin)/home/_lib/getFollowingPosts';
 import { Post as IPost } from '@/model/Post';
 import { useQuery } from '@tanstack/react-query';
 

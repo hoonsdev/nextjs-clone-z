@@ -1,7 +1,7 @@
 'use client';
 
 import Post from '@/app/(afterLogin)/_component/Post';
-import { getPostRecommends } from '@/app/(afterLogin)/_lib/getPostRecommends';
+import { getPostRecommends } from '@/app/(afterLogin)/home/_lib/getPostRecommends';
 import { Post as IPost } from '@/model/Post';
 import { useQuery } from '@tanstack/react-query';
 

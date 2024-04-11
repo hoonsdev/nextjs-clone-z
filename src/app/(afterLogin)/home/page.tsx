@@ -7,7 +7,7 @@ import {
   QueryClient,
   dehydrate,
 } from '@tanstack/react-query';
-import { getPostRecommends } from '@/app/(afterLogin)/_lib/getPostRecommends';
+import { getPostRecommends } from '@/app/(afterLogin)/home/_lib/getPostRecommends';
 import TabDecider from '@/app/(afterLogin)/home/_component/TabDecider';
 
 export default async function Home() {
