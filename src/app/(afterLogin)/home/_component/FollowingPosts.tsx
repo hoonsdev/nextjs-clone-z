@@ -1,12 +1,14 @@
 'use client';
 
+import styles from '@/app/(afterLogin)/home/home.module.css';
+
 import Post from '@/app/(afterLogin)/_component/Post';
 import { getFollowingPosts } from '@/app/(afterLogin)/home/_lib/getFollowingPosts';
 import { Post as IPost } from '@/model/Post';
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 
 export default function FollowingPosts() {
-  const { data } = useQuery<IPost[]>({
+  const { data } = useSuspenseQuery<IPost[]>({
     queryKey: ['posts', 'followings'],
     queryFn: getFollowingPosts,
     staleTime: 60 * 1000, // fresh -> stale 시간, 1분
@@ -15,6 +17,7 @@ export default function FollowingPosts() {
     // gc가 브라우저 메모리를 관리해줌.
     // 5분 지나면 캐시 날라가서 새로 불러와야 됨. 즉, gcTime보다 staleTime은 짧아야됨
   });
+
   return (
     <>
       {data?.map((post) => (

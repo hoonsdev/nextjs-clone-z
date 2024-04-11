@@ -1,6 +1,10 @@
-export async function getPostRecommends() {
+type Props = {
+  pageParam?: number;
+};
+
+export async function getPostRecommends({ pageParam }: Props) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/postRecommends`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/postRecommends?cursor=${pageParam}`,
     {
       // 기본적으로 fetching 시에 데이터를 저장함. -> 캐시
       // 다른 사람이 똑같은 데이터를 불러올 때 이 캐시 데이터를 사용
