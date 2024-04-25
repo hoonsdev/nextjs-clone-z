@@ -1,21 +1,20 @@
-'use client';
+import Main from "@/app/(beforeLogin)/_component/Main";
+import {auth} from "@/auth";
+import {redirect} from "next/navigation";
+import RedirectToLogin from "@/app/(beforeLogin)/login/_component/RedirectToLogin";
 
-import { useRouter } from 'next/navigation';
-import Main from '@/app/(beforeLogin)/_component/Main';
-import { useSession } from 'next-auth/react';
-import { useEffect } from 'react';
+export default async function Login() {
+  const session = await auth();
 
-export default function Login() {
-  const router = useRouter();
-  const { data: session } = useSession();
+  if (session?.user) {
+    redirect('/home');
+    return null;
+  }
 
-  useEffect(() => {
-    if (session?.user) {
-      router.replace('/home');
-    } else {
-      router.replace('/i/flow/login');
-    }
-  }, []);
-
-  return <>{session?.user ? null : <Main />}</>;
+  return (
+    <>
+      <RedirectToLogin />
+      <Main/>
+    </>
+  );
 }

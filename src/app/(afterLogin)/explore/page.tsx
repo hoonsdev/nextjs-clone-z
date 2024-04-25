@@ -1,6 +1,12 @@
-import TrendSection from '@/app/(afterLogin)/explore/_component/TrendSection';
-import style from './explore.module.css';
-import SearchForm from '@/app/(afterLogin)/_component/SearchForm';
+import style from "./explore.module.css";
+import SearchForm from "@/app/(afterLogin)/_component/SearchForm";
+import TrendSection from "./_component/TrendSection";
+import {Metadata} from "next";
+
+export const metadata: Metadata = {
+  title: '탐색하기 / Z',
+  description: '탐색해보세요.',
+}
 
 export default function Home() {
   return (
@@ -13,5 +19,5 @@ export default function Home() {
         <TrendSection />
       </div>
     </main>
-  );
+  )
 }

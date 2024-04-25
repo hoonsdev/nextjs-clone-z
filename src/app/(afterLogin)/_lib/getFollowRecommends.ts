@@ -1,8 +1,9 @@
 export async function getFollowRecommends() {
-  const res = await fetch(`http://localhost:9090/api/followRecommends`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users/followRecommends`, {
     next: {
       tags: ['users', 'followRecommends'],
     },
+    credentials: 'include',
     cache: 'no-store',
   });
   // The return value is *not* serialized
@@ -10,8 +11,8 @@ export async function getFollowRecommends() {
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
-    throw new Error('Failed to fetch data');
+    throw new Error('Failed to fetch data')
   }
 
-  return res.json();
+  return res.json()
 }

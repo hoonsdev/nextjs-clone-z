@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import style from '../search.module.css';
-import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import {useState} from "react";
+import {useRouter, useSearchParams} from "next/navigation";
 export default function Tab() {
   const [current, setCurrent] = useState('hot');
   const router = useRouter();
@@ -12,13 +12,13 @@ export default function Tab() {
     const newSearchParams = new URLSearchParams(searchParams);
     newSearchParams.delete('f');
     router.replace(`/search?${newSearchParams.toString()}`);
-  };
+  }
   const onClickNew = () => {
     setCurrent('new');
     const newSearchParams = new URLSearchParams(searchParams);
     newSearchParams.set('f', 'live');
     router.replace(`/search?${newSearchParams.toString()}`);
-  };
+  }
 
   return (
     <div className={style.homeFixed}>

@@ -1,17 +1,16 @@
-'use client';
-import { TabContext } from '@/app/(afterLogin)/home/_component/TabProvider';
+"use client";
 import style from './tab.module.css';
-import { useContext } from 'react';
+import {useContext} from "react";
+import {TabContext} from "@/app/(afterLogin)/home/_component/TabProvider";
 
 export default function Tab() {
-  const { tab, setTab } = useContext(TabContext);
-
+  const { tab, setTab} = useContext(TabContext);
   const onClickRec = () => {
     setTab('rec');
-  };
+  }
   const onClickFol = () => {
     setTab('fol');
-  };
+  }
 
   return (
     <div className={style.homeFixed}>
@@ -27,5 +26,5 @@ export default function Tab() {
         </div>
       </div>
     </div>
-  );
+  )
 }
