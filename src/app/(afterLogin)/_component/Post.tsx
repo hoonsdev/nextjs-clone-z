@@ -18,7 +18,6 @@ type Props = {
 };
 export default function Post({ noImage, post }: Props) {
   let target = post;
-  console.log('@@@@', target);
   if (post.Original) {
     target = post.Original;
   }
